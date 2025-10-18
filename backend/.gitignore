@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Instance Folder
+instance/
+*.sqlite
+.webassets-cache
+
+# Dotenv
+.env
+
+# Pytest
+.pytest_cache/
