@@ -1,0 +1,70 @@
+.marketplace-container {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* Sidebar and main content */
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.marketplace-header {
+  grid-area: header;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.marketplace-header h1 {
+  color: #2c5234;
+}
+
+.filter-sidebar {
+  grid-area: sidebar;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.filter-sidebar h3 {
+  margin-top: 0;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-sidebar form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-sidebar input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.filter-sidebar button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4a7c59;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.produce-grid-container {
+  grid-area: main;
+}
+
+.produce-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
