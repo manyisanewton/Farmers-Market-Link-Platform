@@ -213,3 +213,12 @@ def delete_produce(produce_id):
     db.session.delete(produce)
     db.session.commit()
     return '', 204
+
+@produce_bp.route('/my-listings', methods=['GET'])
+@jwt_required()
+@farmer_required
+def get_my_produce():
+    """Get all produce listings for the currently logged-in farmer."""
+    farmer_id = int(get_jwt_identity())
+    my_produce = Produce.query.filter_by(farmer_id=farmer_id).order_by(Produce.created_at.desc()).all()
+    return jsonify(produces_schema.dump(my_produce)), 200

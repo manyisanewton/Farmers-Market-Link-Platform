@@ -49,6 +49,12 @@ def create_app(config_name='default'):
     cors.init_app(app, resources={r"/api/*": {"origins": "*"}})
     swagger.init_app(app) # Initialize swagger with the app
 
+    
+    cors.init_app(app, resources={r"/api/*": {
+        "origins": "*",  # Allow all origins for simplicity in development
+        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+        "allow_headers": ["Authorization", "Content-Type"]
+    }})
     # --- Register Blueprints ---
     from .resources.auth import auth_bp
     app.register_blueprint(auth_bp, url_prefix='/api/auth')

@@ -1,0 +1,84 @@
+.my-listings-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.add-new-btn {
+  background-color: #4a7c59;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.add-new-btn:hover {
+  background-color: #3a6647;
+}
+
+.listings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.listings-table th, .listings-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.listings-table th {
+  background-color: #f8f9fa;
+}
+.item-image {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.status {
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.status.available {
+  background-color: #e8f5e9;
+  color: #2c5234;
+}
+.status.sold-out {
+  background-color: #fbe9e7;
+  color: #c62828;
+}
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.action-btn {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.edit-btn {
+  background-color: #1e88e5;
+  color: white;
+}
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+}

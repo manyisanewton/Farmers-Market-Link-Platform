@@ -1,11 +1,12 @@
-// src/routes/AppRoutes.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import MarketplacePage from '../pages/MarketplacePage';
-import AddProduce from '../pages/FarmerDashboard/AddProduce'; // Import the new component
+import AddProduce from '../pages/FarmerDashboard/AddProduce';
+import MyListings from '../pages/FarmerDashboard/MyListings'; // Import MyListings
+import ProtectedRoute from './ProtectedRoute'; // Import ProtectedRoute
 
 const AppRoutes = () => {
   return (
@@ -16,8 +17,23 @@ const AppRoutes = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/market" element={<MarketplacePage />} />
 
-      {/* Farmer Routes (will be protected later) */}
-      <Route path="/dashboard/add-produce" element={<AddProduce />} />
+      {/* Farmer Routes - Wrapped in ProtectedRoute */}
+      <Route
+        path="/dashboard/my-listings"
+        element={
+          <ProtectedRoute allowedRoles={['farmer']}>
+            <MyListings />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/dashboard/add-produce"
+        element={
+          <ProtectedRoute allowedRoles={['farmer']}>
+            <AddProduce />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 };
