@@ -1,10 +1,28 @@
+// src/components/specific/ProduceCard.jsx
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../features/cart/cartSlice';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 import './ProduceCard.css';
 
 const ProduceCard = ({ produce }) => {
-  const { name, price, unit, image_url, location, farmer } = produce;
+  const dispatch = useDispatch();
+  const { name, price, unit, image_url, location } = produce;
   const placeholderImage = 'https://via.placeholder.com/300x200.png?text=No+Image';
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(produce));
+    Swal.fire({
+      toast: true,
+      icon: 'success',
+      title: `${name} added to cart!`,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+    });
+  };
 
   return (
     <div className="produce-card">
@@ -19,8 +37,9 @@ const ProduceCard = ({ produce }) => {
             <FaMapMarkerAlt /> {location}
           </p>
         )}
-        {/* In a later step, we can add farmer info here */}
-        <button className="add-to-cart-btn">Add to Cart</button>
+        <button onClick={handleAddToCart} className="add-to-cart-btn">
+          Add to Cart
+        </button>
       </div>
     </div>
   );

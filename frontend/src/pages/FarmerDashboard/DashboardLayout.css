@@ -1,0 +1,7 @@
+.dashboard-layout { display: flex; max-width: 1200px; margin: 2rem auto; gap: 2rem; }
+.dashboard-sidebar { flex: 0 0 220px; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); height: fit-content;}
+.dashboard-sidebar nav { display: flex; flex-direction: column; gap: 0.5rem; }
+.dashboard-sidebar nav a { color: #333; text-decoration: none; padding: 0.8rem 1rem; border-radius: 4px; font-weight: 500; }
+.dashboard-sidebar nav a:hover { background-color: #f4f4f4; }
+.dashboard-sidebar nav a.active { background-color: #4a7c59; color: white; }
+.dashboard-content { flex: 1; }

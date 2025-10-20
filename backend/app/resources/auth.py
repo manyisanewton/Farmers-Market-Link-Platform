@@ -2,7 +2,7 @@
 from flask import request, jsonify, Blueprint
 from marshmallow import ValidationError
 from flask_jwt_extended import create_access_token, create_refresh_token
-
+from flask_jwt_extended import jwt_required
 from app.models.user import User
 from app.schemas.user import UserSchema
 from app import db
@@ -128,3 +128,5 @@ def login():
         return jsonify(access_token=access_token, refresh_token=refresh_token), 200
 
     return jsonify({"message": "Invalid credentials"}), 401
+
+  
